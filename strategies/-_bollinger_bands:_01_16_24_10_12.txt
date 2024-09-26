@@ -1,0 +1,49 @@
+Trading Strategy Instructions for Bollinger Bands Advanced Level Breakout:
+
+1. **Objective:**
+   Develop a trading strategy that uses Bollinger Bands, RSI, Candlestick Patterns, and Volume indicators to identify breakout scenarios for both bullish and bearish trends.
+
+2. **Indicators and Settings:**
+   - Bollinger Bands: The default setting with a 20-period Simple Moving Average (SMA) and a standard deviation of 2.
+   - Relative Strength Index (RSI): The period set to 14 with key levels at 50, 40, and 60.
+   - Volume: No specific setting; just ensure the volume data is available.
+   - Candlestick Patterns: Focus on strong bullish or bearish candles (Marubozu-like) with small or no wicks.
+
+3. **Entry Conditions:**
+   - **Bullish Scenario:**
+     - After a period of Bollinger Bands contraction, look for a strong bullish candle (candle with a small or no lower wick) that breaks above the upper Bollinger Band.
+     - Confirm with RSI above 50 to indicate bullish momentum.
+     - Confirm the breakout with a spike in volume to suggest strong market participation.
+     - Entry is triggered when the price surpasses the high of the strong bullish breakout candle.
+
+   - **Bearish Scenario:**
+     - After a period of Bollinger Bands contraction, look for a strong bearish candle (candle with a small or no upper wick) that breaks below the lower Bollinger Band.
+     - Confirm with RSI below 50, or for stronger momentum, below 40.
+     - Confirm the breakout with a spike in volume to suggest strong market participation.
+     - Entry is triggered when the price falls below the low of the strong bearish breakout candle.
+
+4. **Exit Conditions:**
+   - **Stop Loss:**
+     - For a bullish trade, place the stop loss below the low of the breakout candle or a recent swing low, based on the trader's risk tolerance.
+     - For a bearish trade, place the stop loss above the high of the breakout candle or a recent swing high, based on the trader's risk tolerance.
+
+   - **Take Profit:**
+     - Traders should set take profit levels based on a risk-to-reward ratio (e.g., 1:2 or 1:3), or use a trailing stop loss to capture potential trend continuation.
+     - In a bullish trend, a trader might exit when a candle closes below a swing low or the lower Bollinger Band.
+     - In a bearish trend, a trader might exit when a candle closes above a swing high or the upper Bollinger Band.
+
+5. **Money Management:**
+   - The backtest should include parameters to define the percentage of the capital to be invested per trade, or a fixed number of shares/contracts to be traded.
+   - Implement risk management techniques to ensure no single trade risks more than a predetermined percentage of the total trading account.
+
+6. **Timeframe:**
+   - The strategy should be tested on multiple timeframes, but priority should be given to higher timeframes (1 hour and above) as they tend to provide more reliable signals.
+
+7. **Backtesting Considerations:**
+   - Backtest the strategy across different market conditions and instruments to evaluate its versatility and robustness.
+   - Include the ability to customize start and end dates for the backtest to assess the strategy over specific historical periods.
+   - Record metrics such as win-rate, average win/loss, drawdowns, and total return to evaluate performance.
+
+8. **Additional Notes:**
+   - The AI must maintain a learning mindset and be prepared to adjust the strategy parameters based on backtesting results.
+   - Be mindful of commission costs and slippage in the backtesting process; these must be included in the performance evaluation.

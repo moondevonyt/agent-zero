@@ -1,0 +1,36 @@
+Trading Strategy Instructions:
+
+1. Currency Pair: Focus on the USD/JPY (dollar yen) currency pair for this strategy.
+
+2. Timeframe: Use the 15-minute chart for executing trades.
+
+3. Indicators:
+    - EMA 50 (15-minute chart): To determine the current short-term trend.
+    - EMA 200 (15-minute chart): To identify a longer-term trend.
+    - EMA 800 (1-hour chart): To replicate the 200 EMA from the 4-hour chart perspective.
+    - Stop Volume: To identify potential reversal points where a high volume indicates the market may stop falling and start rising.
+
+4. W-Formation Pattern: Identify W formations as potential reversal patterns, particularly after a downtrend.
+
+5. ADR (Average Daily Range): Use the ADR to assess whether the price has moved excessively from its typical daily range and is likely to revert to the mean.
+
+6. Trade Entries:
+    - Enter LONG positions when a W formation is identified at the bottom of a downtrend.
+    - Confirm the validity of the W formation by the price approaching key EMA levels such as the EMA 800 on the 1-hour chart (equivalent to the EMA 200 on the 4-hour chart) or important psychological levels (e.g., 109.000 for USD/JPY).
+    - Confirm trade entries with stopping volume, suggesting that the selling pressure is ending and a potential trend reversal is imminent.
+    - Build positions by entering multiple small-sized trades instead of one large trade to minimize exposure and risk. Each trade size should be small relative to the total account size.
+
+7. Trade Exits:
+    - Take profits or add to positions as the price approaches significant projection zones, such as historical resistance levels or a percentage of the ADR away from the entry.
+    - Set a stop loss to manage risk, ideally so that even a 100 pip movement against the position would incur a loss of only about 1.5 to 2 percent of the account.
+    - Optionally, employ a trailing stop strategy to capitalize on price movements in favor while protecting against reversals.
+
+8. Position Management:
+    - Utilize very low leverage to avoid large losses from small movements against the position.
+    - Adjust position sizes according to the account balance to ensure long-term sustainability and the ability to withstand potential drawdowns.
+
+9. Backtesting Protocol:
+    - Backtest the strategy across various market conditions, including different levels of volatility and during different trading sessions (Asian, European, North American).
+    - The backtest should account for trade entries based on W formations, stopping volume signals, proximity to key EMA levels, and ADR considerations.
+    - Record trade outcomes, including the impact of trade size and leverage on account equity over time.
+    - Analyze the average holding time for positions, the win rate, risk-to-reward ratio, and any patterns correlating trade success with specific market conditions.

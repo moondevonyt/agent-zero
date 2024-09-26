@@ -1,0 +1,78 @@
+# Trading Strategy Definition: CVD, FVG, and Order Blocks
+
+## Definitions
+- **CVD (Cumulative Volume Delta)**: The difference between the cumulative volume of market buy orders and the cumulative volume of market sell orders over a specific time frame.
+- **FVG (Fair Value Gap)**: A price zone where the market moved quickly through and left a gap, indicating a lack of substantial trade volume or market interest in that price range.
+- **Order Block**: A block in the market where institutional orders were previously filled, potentially acting as a support or resistance level in the future.
+
+## General Strategy
+
+### 1. Identify Key Components
+- Identify the Order Blocks in the chart, marking them as potential support or resistance areas.
+- Recognize FVGs that occur after a significant price movement, indicating potential areas for a price return.
+- Calculate CVD for defined time frames to determine market buy or sell pressure.
+
+### 2. Trade Entry Criteria
+
+#### Buy Entry:
+- Price is approaching or is within an identified Order Block area that is presumed to act as support.
+- There is a recent FVG below the current price, suggesting that a return to this gap will probably witness buying pressure.
+- The CVD is either showing decreasing selling pressure (fewer market sell orders) or an increasing buying pressure (more market buy orders).
+
+#### Sell Entry:
+- Price is approaching or is within an identified Order Block area that is presumed to act as resistance.
+- There is a recent FVG above the current price, indicating that a return to this gap may see selling pressure.
+- The CVD is either showing decreasing buying pressure (fewer market buy orders) or increasing selling pressure (more market sell orders).
+
+### 3. Trade Exit Criteria
+
+#### Take Profit:
+- Set take profit levels at the nearest FVG or on reaching the opposite Order Block area.
+- Adjust take profit according to the strength of the CVD signal; stronger signals may warrant extended take profit targets.
+
+#### Stop Loss:
+- Places stop loss just beyond the identified Order Block, taking into account the asset's typical volatility to avoid market noise.
+- If CVD begins to show strong signals contrary to your trade, consider tightening the stop loss.
+
+### 4. Risk Management
+- Determine the risk level per trade as a percentage of the trading account balance (e.g., 1-2%).
+- Adjust position sizes to match the predetermined risk exposure.
+
+## Specific Strategy Rules for Backtest
+
+### Entry Rules
+1. **For a Buy Entry:**
+   - Confirm that the price is within a predefined distance from the lower edge of the nearest Order Block acting as support.
+   - Validate that there is a recent FVG below the current price level.
+   - Ensure the CVD is rising or forming a bullish divergence with the price.
+
+2. **For a Sell Entry:**
+   - Ensure that the price is within a predefined distance from the upper edge of the nearest Order Block acting as resistance.
+   - Verify that there is a recent FVG above the current price level.
+   - Check that the CVD is falling or forming a bearish divergence with the price.
+
+### Exit Rules
+1. **For a Buy Trade:**
+   - Set take profit at the closest FVG above entry or the next Order Block acting as resistance.
+   - Place a stop loss just below the Order Block used for entry.
+   - Monitor the CVD for reversal signals.
+
+2. **For a Sell Trade:**
+   - Set take profit at the closest FVG below entry or the next Order Block acting as support.
+   - Place a stop loss just above the Order Block used for entry.
+   - Observe the CVD for reversal signals.
+
+### Trade Management
+- Modify stop loss to break-even once the price has moved in favor of the trade by at least the distance of the initial risk.
+- Consider a trailing stop if the asset's volatility and trend strength warrants it, based on continued supportive CVD readings.
+
+### Risk Management
+- Calculate the position size for each trade to maintain consistent risk per trade.
+- The backtest should account for slippage and commission to reflect realistic conditions.
+
+### Additional Notes for Backtest AI
+- Use historical price charts for identifying the Order Blocks and FVGs. These areas should be visually apparent as substantial price movements with consolidation before/after.
+- The calculation of the CVD will require tick data or volume data at minimum which indicates buying/selling pressure.
+- When identifying FVGs, focus on significant price leaps where little volume has been traded. Disregard micro FVGs which may not hold the same psychological impact.
+- For establishing the strength of CVD signals, use a relative measure to the asset's regular volume activity.
+- Include parameters for all these aspects within the backtest to optimize the strategy further if necessary.

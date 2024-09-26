@@ -1,0 +1,52 @@
+Trading Strategy: Profitable Martingale System
+
+Objective:
+Implement a modified Martingale trading strategy that increases position size after a profitable trade rather than after a loss, attempting to capitalize on streaks of winning trades.
+
+Initial Requirements:
+- Starting capital: user-defined
+- Base bet size: a fixed percentage of current capital or a fixed amount
+- Maximum bet size: user-defined or based on a multiplier of the base bet size
+- Win condition: user-defined criteria (e.g., crossover of certain moving averages, breakout from range, etc.)
+- Bet increase factor: the multiplier by which to increase the bet size after a profitable trade (e.g., 2x, 1.5x, etc.)
+- Maximum number of increases: after how many consecutive profitable trades to stop increasing the bet size and reset to the base bet size
+- Stop-Loss/Take-Profit: user-defined stop-loss and take-profit levels
+
+Entry:
+1. Account Balance: Calculate initial account balance.
+2. Base Bet Size: Determine the base bet size, either a fixed amount or a certain percentage of the current account balance.
+3. Signal for Entry: Monitor financial instruments for the predetermined win condition.
+4. Open Position: Enter a trade with the determined base bet size when the win condition is met.
+
+Money Management:
+1. Profitable Trade:
+   a. After a profitable trade, multiply the bet size by the bet increase factor.
+   b. If the number of consecutive profitable trades reaches the maximum number of increases, reset the bet size to the base bet size.
+2. Losing Trade:
+   a. After a losing trade, reset the bet size to the base bet size.
+3. Maximum Bet Size: Ensure the bet size does not exceed the user-defined maximum bet size after any increases. If the calculated next bet size exceeds this limit, use the maximum bet size instead.
+4. Risk Management: Apply a stop-loss and a take-profit to each trade to manage risk.
+
+Exit:
+1. Stop-Loss or Take-Profit Hit: Close the position if the price hits the stop-loss or the take-profit.
+2. Signal for Exit: If the strategy includes a signal for exit (other than stop-loss or take-profit), close the trade when the condition is satisfied.
+
+Result Evaluation:
+1. After closing the trade, determine whether it was profitable.
+2. Update the account balance with the result of the closed trade. If profitable, calculate the next bet size using the bet increase factor; if not, revert to the base bet size for the next trade.
+
+Strategy Reset:
+1. Reset Conditions: The strategy resets to the base bet size under two conditions:
+   a. After a losing trade.
+   b. After reaching the maximum number of consecutive increases following profitable trades.
+
+Reporting:
+Throughout the backtest, keep track of the following metrics:
+- Total number of trades
+- Win rate (percentage of profitable trades)
+- Average win and average loss
+- Maximum drawdown (the largest peak-to-trough decline in account balance)
+- Net profit or loss
+- Return on investment (ROI)
+
+After executing the backtest based on these instructions, the AI should produce a report containing these performance metrics and a chart of the equity curve for the strategy over the backtest period.

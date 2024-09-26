@@ -1,0 +1,52 @@
+Here are the precise instructions for coding a backtest for the Larry Williams Volatility Breakout Strategy:
+
+1. Data Requirements:
+    - Historical price data (OHLC) with a five-minute timeframe.
+    - Volume data for the corresponding time periods.
+
+2. Indicator Setup:
+    - Donchian Channels with the length set to 96 periods; use the high and low for the respective upper and lower bands and the average for the middle band.
+    - Larry Williams' Trade Index (LWTI) with the period set to 25 and smoothing period set to 20.
+    - Volume indicator with a moving average over 30 periods (volume MA).
+
+3. Long Entry Conditions:
+    - Price touches or breaks above the Donchian upper band (red line).
+    - The LWTI indicator must be green at the time of the breakout.
+    - Volume bars must be above the white volume MA line and must also be green.
+    - All entry conditions must be met simultaneously.
+
+4. Long Stop Loss and Take Profit:
+    - Stop loss can generally be placed below the middle orange line (mean) of the Donchian Channels.
+    - In cases where the middle line is far from the upper band (creating a large potential stop loss), use the recent swing low as the stop loss instead.
+    - Set the take profit with a 2:1 reward-to-risk ratio relative to the stop loss.
+
+5. Short Entry Conditions:
+    - Price touches or breaks below the Donchian lower band (red line).
+    - The LWTI indicator must be red at the time of the breakout.
+    - Volume bars must be above the white volume MA line and must also be red.
+    - All entry conditions must be met simultaneously.
+
+6. Short Stop Loss and Take Profit:
+    - Stop loss can generally be placed above the middle orange line (mean) of the Donchian Channels.
+    - In cases where the middle line is far from the lower band (creating a large potential stop loss), use the recent swing high as the stop loss instead.
+    - Set the take profit with a 2:1 reward-to-risk ratio relative to the stop loss.
+
+7. Additional Filters:
+    - Avoid entering trades when the price is near major support or resistance levels identified on a higher timeframe (such as 1 hour).
+    - Skip trades that fulfill entry conditions but are too close to identified major levels.
+    - Consider entering a trade if the price is breaking through a resistance/support level and all other indicator conditions are met.
+
+8. Backtest Procedure:
+    - Iterate through historical 5-minute data.
+    - Check for entry signals based on conditions detailed above.
+    - When a signal is generated, enter the trade with the defined stop loss and take profit levels.
+    - Record the trade outcome (win, loss, or break-even) and the respective profit or loss based on the price when the stop loss or take profit levels are hit.
+    - Account for spreads or trading costs if applicable.
+    - Compile the results to calculate metrics such as win rate, risk-reward ratio, average gain/loss, drawdown, and overall profitability.
+
+9. Backtest Outputs:
+    - Equity curve over the testing period.
+    - A detailed trade log with entry and exit points, stop loss, take profit, and trade outcome.
+    - Summary statistics including total number of trades, win rate, average win/average loss, maximum drawdown, net profit, and profit factor.
+
+Please use these precise instructions to construct the backtest for the LW Volatility Breakout Strategy in your designated coding environment.

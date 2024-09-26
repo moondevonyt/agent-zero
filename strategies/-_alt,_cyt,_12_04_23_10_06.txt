@@ -1,0 +1,51 @@
+Trading Strategy Instructions for Backtesting:
+
+**Strategy Name**: Multi-Day Big Swing Strategy
+
+1. **Universe of Stocks**:
+   - The strategy applies to specific stocks mentioned in the video:
+      - DASH (for the breakout trade)
+      - IWM (for the momentum pullback trade)
+      - ALT, CYT, MINM (for the short sell on pops in small caps)
+
+2. **Timeframe**:
+   - Use daily and hourly charts to analyze trade setups.
+   - The holding period for the trades is approximately 3-5 days for swing trades, and intraday for short-sell setups on small caps.
+
+3. **Entry Criteria**:
+   - **Breakout Trade (DASH)**:
+      - Enter a long half-position if DASH closes above $96 with elevated relative volume (compared to the 20-day average volume).
+      - Enter the full position once DASH trades above last week's high of $97.
+   - **Momentum Pullback Trade (IWM)**:
+      - Enter a long position if IWM retraces to between $183.50 and $184, showing a higher low on the hourly chart with buyers stepping in.
+      - If IWM consolidates for a couple of days post-breakout, enter on a secondary breakout above the multi-day consolidation high.
+   - **Short Sell on Pops in Small Caps (ALT, CYT, MINM)**:
+      - Set price alerts for potential bounce zones identified from prior resistance or fail zones.
+      - Once an alert is triggered, look for intraday price action that suggests failure at those levels to enter a short position.
+
+4. **Exit Criteria**:
+   - **Breakout Trade (DASH)**:
+      - Initial stop loss at $94.50 (middle of the range).
+      - After full size entry at $97, raise the stop loss to $95.50 (hourly resistance).
+      - Take profit of one-third of the position at $100 (1 ATR from entry).
+      - Continue to trail remaining positions using hourly chart's higher lows, and reduce by another third for each additional ATR gained, until entirely out or stopped.
+   - **Momentum Pullback Trade (IWM)**:
+      - Set stop loss below the higher low formed on the pullback on the hourly chart.
+      - Ultimate target is $190, with a timeframe of up to one week for the trade to play out.
+   - **Short Sell on Pops in Small Caps (ALT, CYT, MINM)**:
+      - Set stop loss just above the high of the day if the stock fails at the alert zone.
+      - Take profits into the $3.50 area on the day, or if the stock trades into subsequent higher alert zones and fails, take profits accordingly.
+
+5. **Risk Management**:
+   - Risk half an ATR (Average True Range) for initial breakout trade entry.
+   - Adjust positions sizes according to the stop loss levels to maintain consistent risk per trade.
+   - For short sell trades on small caps, the risk is defined by placing the stop loss just above the high of the day or the fail zone.
+
+6. **Additional Notes for Backtest**:
+   - Include volume filters to ensure trades are taken only with adequate liquidity.
+   - Incorporate ATR calculations based on the past 20 trading days for breakout trades.
+   - The strategy requires monitoring for specific price actions (e.g., for short sell setups, need to watch for failure at specific levels).
+   - Trades should be executed based on the closing prices for daily setups and intraday prices for hourly setups.
+   - Factor in transaction costs and slippage in the backtest.
+
+Once the backtest has been completed using the above criteria, analyze the performance metrics, including win rate, risk-reward ratio, overall profitability, maximum drawdown, and compare to the benchmark (e.g., S&P 500 for DASH and IWM, small-cap index for small caps).

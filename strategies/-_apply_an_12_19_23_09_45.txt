@@ -1,0 +1,40 @@
+Trading Strategy Instructions for Backtesting:
+
+1. **Data Requirements:**
+   - Historical 5-minute and 1-minute time frame price data for XAU/USD (Gold).
+   - Ensure data includes the New York trading session (typically 8:00 am to 5:00 pm EST).
+
+2. **Indicators Setup:**
+   - Apply an 'Imbalance' indicator on the chart. Configure the indicator colors to match candlestick colors (e.g., green for bullish, red for bearish).
+   - Apply an Exponential Moving Average (EMA) with a period of 50 on the chart.
+
+3. **Trading Session:**
+   - Restrict trade entries to the New York trading session hours.
+
+4. **Strategy Rules for Long Positions:**
+   - The market should be trending above the 50 EMA on the 5-minute chart.
+   - Identify a bullish imbalance on the 5-minute chart.
+   - Switch to the 1-minute chart once a bullish imbalance is found on the 5-minute timeframe.
+   - On the 1-minute chart, wait for the price to re-enter the bullish imbalance zone from the 5-minute chart.
+   - Wait for the price to form another bullish imbalance on the 1-minute chart within the 5-minute bullish imbalance zone.
+   - Enter a long position when the price returns to the 1-minute bullish imbalance zone.
+   - The stop-loss level should be set at the 50 EMA.
+   - Target a risk-to-reward ratio of 1:4 for the trade.
+
+5. **Strategy Rules for Short Positions:**
+   - The market should be trending below the 50 EMA on the 5-minute chart.
+   - Identify a bearish imbalance on the 5-minute chart.
+   - Switch to the 1-minute chart once a bearish imbalance is found on the 5-minute timeframe.
+   - On the 1-minute chart, wait for the price to re-enter the bearish imbalance zone from the 5-minute chart.
+   - Wait for the price to form another bearish imbalance on the 1-minute chart within the 5-minute bearish imbalance zone.
+   - Enter a short position when the price returns to the 1-minute bearish imbalance zone.
+   - The stop-loss level should be set at the 50 EMA.
+   - Target a risk-to-reward ratio of 1:4 for the trade.
+
+6. **Execution and Backtesting:**
+   - The backtest should iterate through the 5-minute and 1-minute historical data to identify trade entry points as per the strategy rules.
+   - All trades should be executed only during the defined New York trading session.
+   - Record each trade's entry point, exit point, stop-loss level, and take-profit level.
+   - Calculate the overall profitability, win-rate, and risk-reward profile of the trading strategy over the historical data set.
+
+Please follow these instructions to create the backtest code for the provided trading strategy. Ensure that the backtest methodology is robust and includes realistic assumptions about slippage and transaction costs.

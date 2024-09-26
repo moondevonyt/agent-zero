@@ -1,0 +1,39 @@
+Trading Strategy Instructions for Fair Value Gaps (FVG)
+
+1. Definitions:
+   - Bullish FVG (BFVG): Occurs when the high of the first candle does not overlap with the low of the third candle, creating a visible gap on the chart.
+   - Bearish FVG (SFVG): Occurs when the low of the first candle does not overlap with the high of the third candle, creating a visible gap on the chart.
+   - IOFED (Institutional Order Flow Entry Drill): Price just touches the FVG and reverses with strong momentum.
+   - CE (Consequent Encroachment): Price moves and retraces to the 50% level of the FVG before reversing.
+   - FVG Fill: Price retraces to completely fill the FVG.
+
+2. Identifying FVGs:
+   - Scan the chart for BFVG and SFVG formations using a three-candlestick pattern according to the definitions provided.
+   - Mark the range of the FVG for reference.
+   - Monitor for IOFED, CE, and FVG Fill levels.
+
+3. Entry Criteria:
+   - Long Entry: Look for a BFVG during an uptrend (higher highs and higher lows). Enter either after a candle closes above the most recent swing high or after a bullish engulfing pattern is formed within or just after the FVG.
+   - Short Entry: Look for an SFVG during a downtrend (lower highs and lower lows). Enter either after a candle closes below the most recent swing low or after a bearish engulfing pattern is formed within or just after the FVG.
+
+4. Stop Loss / Take Profit:
+   - For Longs: Place a stop loss below the low of the FVG or the bullish engulfing candle. Aim for a 1:2 or 1:3 risk to reward ratio or target the next resistance level or swing high.
+   - For Shorts: Place a stop loss above the high of the FVG or the bearish engulfing candle. Aim for a 1:2 or 1:3 risk to reward ratio or target the next support level or swing low.
+
+5. Trade Management:
+   - Monitor for IOFED, CE, and FVG Fill levels for potential trade closure if price action indicates a reversal before the intended take profit is reached.
+   - Adjust stop losses to break even when the trade moves in favor by at least the initial risk amount.
+
+6. Backtesting Parameters:
+   - Time Frame: Use an intermediate time frame for identifying FVGs, such as the 1-hour or 4-hour chart.
+   - Downscale to a smaller time frame, like 15-minute charts, for precision in entry.
+   - Use historical data to identify FVG formation instances and execute the trades according to entry criteria.
+   - Repeat the process over a significant sample size of trades to validate the strategy's effectiveness.
+
+7. Additional Notes for Backtesting:
+   - Include date, symbol, entry price, stop loss, take profit, and trade outcome (win/loss) for each trade.
+   - Calculate the win rate, average win, and average loss.
+   - Compute the expected return for the strategy (win rate * average win - loss rate * average loss).
+   - Account for trading costs and potential slippage.
+
+Remember that the strategy may require optimization based on the traded instrument and market conditions. The other AI should backtest with different pairs and timeframes to find the best settings for this strategy.

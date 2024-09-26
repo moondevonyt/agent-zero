@@ -1,0 +1,49 @@
+TRADING STRATEGY INSTRUCTIONS
+
+Here are the detailed instructions for coding a backtesting trading strategy based on the given trading idea:
+
+1. **Data Preparation**:
+   - Use historical price data for the instrument you're trading (e.g., major currency pairs, stocks, etc.).
+   - Ensure the data includes Open, High, Low, and Close prices, as well as volume if necessary.
+
+2. **Identify Demand (Support) and Supply (Resistance) Zones**:
+   - Define a support zone where the price has previously experienced significant buying interest, leading to an upwards price reversal.
+   - Define a resistance zone where the price has previously encountered significant selling interest, leading to a downwards reversal.
+   - Use historical data to identify these zones based on areas where price has bounced back multiple times.
+
+3. **Trading Signals**:
+   - Enter a long position (buy) when:
+     a. The price enters the support zone.
+     b. The current or recently closed candlestick satisfies the following conditions:
+         - The Open price is equal to the High price (indicating no upward wick and strong buying pressure from the support level).
+         - The Low price is significantly above the bottom band of the support zone (use predefined percentage tolerance, e.g., at least 2% above the bottom support zone boundary).
+
+   - Enter a short position (sell) when:
+     a. The price enters the resistance zone.
+     b. The current or recently closed candlestick satisfies the following conditions:
+         - The Open price is equal to the Low price (indicating no downward wick and strong selling pressure from the resistance level).
+         - The High price is significantly below the top band of the resistance zone (use predefined percentage tolerance, e.g., at least 2% below the top resistance zone boundary).
+
+4. **Position Sizing**:
+   - Define rules for position sizing based on account risk management, such as risking a fixed percentage of the account balance per trade.
+
+5. **Stop Loss and Take Profit**:
+   - Set stop loss just outside the support or resistance zone from which the trade was taken (e.g., a percentage below support for a long position or above resistance for a short position).
+   - Set take profit based on either a fixed risk-reward ratio (e.g., 2:1) or based on another technical level (e.g., the next support/resistance zone).
+
+6. **Exit Criteria**:
+   - Close the position if the price crosses the stop-loss level.
+   - Consider implementing a trailing stop loss to lock in profits as the price moves in the desired direction.
+   - Optionally include exit criteria based on technical indicators like moving averages, RSI, or MACD crossing certain thresholds.
+
+7. **Backtesting Framework**:
+   - The backtest should simulate trades over a historical dataset within a defined period, including accounting for slippage and commissions if necessary.
+   - Calculate the standard performance metrics, such as win rate, average profit/loss, maximum drawdown, Sharpe ratio, etc.
+   - Perform a sensitivity analysis by tweaking the parameters related to the size of support/resistance zones, stop-loss, and take-profit distances to optimize the strategy.
+
+8. **Additional Considerations**:
+   - Include the ability to filter trades based on the time of day or market conditions.
+   - The backtesting should be robust enough to be applied to different instruments without modifications to the strategy logic.
+   - Consider economic news events or other external factors that may affect the behavior of the instrument being traded.
+
+Note: The actual percentages for zones and tolerances for conditions should be defined based on historical data analysis and may require optimization during the backtesting process.

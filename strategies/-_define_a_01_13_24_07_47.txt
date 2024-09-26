@@ -1,0 +1,47 @@
+Trading Strategy Instructions:
+
+1. **Preparation**
+    - Define 'Support' and 'Resistance' levels as horizontal price zones that have historically shown significant price reversals.
+    - Use price data that includes Open, High, Low, Close (OHLC) to identify swing highs and lows.
+    - Define a "significant" swing high or swing low as a peak or trough that stands out clearly on the chart over a chosen period.
+    - Choose a timeframe for analysis (e.g., daily, 4-hour, 1-hour charts). Consistency is key, so stick to the chosen timeframe throughout the backtest.
+
+2. **Identifying Support and Resistance Zones**
+    - Start with a clear chart and remove all indicators to focus solely on price action.
+    - Identify all swing highs and lows on the chart.
+    - Connect swing highs with horizontal zones to form resistance areas.
+    - Connect swing lows with horizontal zones to form support areas.
+    - Define the width of zones with a buffer, either as a fixed value or a percentage of the price.
+
+3. **Trade Entry Rules**
+    - **The Bounce**: Enter a long position when price touches or comes within a predefined distance of a support zone and shows evidence of a bounce.
+    - **The Break**: Enter a short position when price breaks through a support zone with significant momentum, indicative of a continued downward move.
+
+4. **Trade Exit Rules**
+    - **Profit Target**: Set a profit target below the next support area when going short, or above the next resistance area when going long.
+    - **Stop Loss**: Place a stop loss outside the most recent swing high/low used to draw the support/resistance zones.
+
+5. **Confirmation Rules**
+    - Validate the entry with one or more confirmation signals such as candlestick patterns (e.g., bullish hammer, bearish engulfing) near the support/resistance zones.
+    - For the breakout strategy, confirm with increased volume or a secondary price move beyond the breakout level.
+
+6. **Position Sizing**
+    - Use a fixed percentage of account equity or employ a risk management strategy such as Kelly Criterion for position sizing.
+    - Do not risk more than a predefined percentage of total account equity on a single trade.
+
+7. **Backtesting Parameters**
+    - Test the strategy over a significant historical period to include various market conditions (e.g., at least 5 years of data).
+    - Factor in trading costs such as spread, commission, and slippage.
+
+8. **Performance Metrics**
+    - Track performance metrics including win rate, risk-to-reward ratio, drawdown, Sharpe ratio, and profitability.
+
+9. **Optimization and Robustness Checks**
+    - Vary key parameters (e.g., zone width, entry threshold, stop loss distance) to optimize for maximum profitability and minimized drawdown.
+    - Perform robustness checks using out-of-sample data and forward testing to validate the strategy’s efficacy beyond the backtest period.
+
+10. **Documentation**
+    - Document the rules in clear, unambiguous terms with no room for interpretation.
+    - Include diagrams or charts illustrating sample trades if necessary.
+
+The backtesting AI should be supplied with precise instructions based on these rules, ensuring every point is clearly defined and executable. The strategy should be systematic, with no room for subjective judgment in the execution of trades during the backtesting process.

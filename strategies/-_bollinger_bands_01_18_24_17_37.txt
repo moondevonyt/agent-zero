@@ -1,0 +1,63 @@
+Trading Strategy Instructions for Backtesting AI:
+
+**1. Define Parameters:**
+- Support/Demand Zone (SZ/DZ): An area where the price has shown to historically bounce upward.
+- Resistance Zone (RZ): An area where the price has shown to historically bounce downward.
+- Bollinger Bands (BB): A technical indicator consisting of a set of lines plotted two standard deviations (positively and negatively) away from a simple moving average (SMA) of the security's price.
+- Entry Signal: Specific conditions under which a trade will be entered.
+- Exit Signal: Specific conditions under which a trade will be exited.
+
+**2. Identify Support and Resistance Zones:**
+- Detect areas on the chart where the price has bounced multiple times. For a support zone, the price should bounce upwards; for a resistance zone, the price should bounce downwards.
+- These zones can be determined by manual analysis or by an algorithm that identifies multiple touches of price levels with significant reversals.
+
+**3. Bollinger Bands Settings:**
+- Use the 20-period SMA for the middle band.
+- Set the standard deviation to 2 for the upper and lower bands.
+
+**4. Entry Signal Criteria:**
+- A ‘Buy’ signal is triggered when:
+    - The price enters or approaches the support/demand zone.
+    - A candlestick formation suggests a reversal at the support zone:
+        - For Buy: A bullish engulfing pattern, a hammer, or a candle with a long lower wick.
+        - The opening price of the candle should be equal to or nearly equal to the high of the candle (for a bullish reversal).
+    - The lower Bollinger Band is touched or broken by the price.
+
+- A ‘Sell’ signal is triggered when:
+    - The price enters or approaches the resistance zone.
+    - A candlestick formation suggests a reversal at the resistance zone:
+        - For Sell: A bearish engulfing pattern, a shooting star, or a candle with a long upper wick.
+        - The opening price of the candle should be equal to or nearly equal to the low of the candle (for a bearish reversal).
+    - The upper Bollinger Band is touched or broken by the price.
+
+**5. Exit Signal Criteria:**
+- For a Buy position, close the trade if:
+    - The price reaches a predetermined profit target, which could be set at a resistance level above the entry point or a risk-reward ratio.
+    - The price closes below the support/demand zone.
+- For a Sell position, close the trade if:
+    - The price reaches a predetermined profit target, which could be set at a support level below the entry point or a risk-reward ratio.
+    - The price closes above the resistance zone.
+
+**6. Risk Management:**
+- Set stop losses for all trades:
+    - For Buy: Below the identified support zone.
+    - For Sell: Above the identified resistance zone.
+- Define the maximum allowable risk per trade (e.g., 1-2% of the trading account).
+
+**7. Trade Frequency and Duration:**
+- The strategy should be tested on a 15-minute timeframe.
+- Trades can be held until the exit criteria are met or until the end of the trading day to minimize overnight market risk.
+
+**8. Backtesting Environment:**
+- Backtest the strategy using historical price data for any major currency pair or stock.
+- Include at least 2-5 years of historical data for robustness.
+- Factor in transaction costs, slippage, and spread where applicable.
+
+**9. Performance Metrics:**
+Evaluate the backtest on the following metrics:
+- Total return and compounded annual growth rate (CAGR).
+- Maximum drawdown and drawdown duration.
+- Win rate and risk-reward ratio.
+- Sharpe ratio to understand the risk-adjusted performance.
+
+The other AI should use these instructions to develop a backtest that can verify the efficacy of the trading strategy. It's important to ensure that the backtest avoids any look-ahead bias and is as realistic as possible.

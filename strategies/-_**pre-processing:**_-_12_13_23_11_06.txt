@@ -1,0 +1,52 @@
+Trading Strategy Instructions Based on the "Volume-Synchronized Probability of Informed Trading (VPIN)" from the provided paper (Easley, López de Prado, and O'Hara, 2015):
+
+1. **Data Preparation:**
+   - **Inputs Required:**
+     - High-frequency trade and quote (TAQ) data.
+     - Trade volume.
+   - **Pre-processing:**
+     - Consolidate trades and quotes to compute the price and volume at each time interval.
+     - Clean the data to remove any outliers or errors.
+     - Adjust for stock splits and dividends.
+
+2. **Volume Bucketing:**
+   - Define a fixed volume bucket size (VBS), which is a key parameter and might require optimization.
+   - Assemble trades into sequential buckets, each containing trades that sum up to the predefined VBS.
+
+3. **Volume Imbalance Calculation:**
+   - For each volume bucket, calculate the volume imbalance by taking the absolute difference between buyer-initiated trades and seller-initiated trades within each bucket.
+   - Buyer- and seller-initiated trades can be identified using the Lee-Ready algorithm or the Tick Rule, depending on data availability.
+
+4. **Bulk Volume Classification (BVC):**
+   - Estimate the Bulk Volume Classification as a proxy for informed trading. It is the sum of the volume imbalances over a fixed number of `N` buckets, divided by twice the total volume of these `N` buckets.
+
+5. **VPIN Metric Calculation:**
+   - Calculate the VPIN metric as the proportion of BVC to total volume for the same `N` buckets.
+
+6. **Trading Signal Generation:**
+   - Define a threshold for VPIN, which could be static or dynamic (e.g., a percentile of historical VPIN values).
+   - Generate a buy signal when VPIN drops below the lower threshold, indicating that the potential for informed trading is low, and hence the market may be less risky.
+   - Generate a sell signal when VPIN exceeds the upper threshold, indicating that the potential for informed trading is high, and the market may be riskier.
+
+7. **Order Execution:**
+   - When a buy signal is generated, place a market order to purchase a predetermined number of shares of the stock.
+   - When a sell signal is generated, place a market order to sell the held shares.
+
+8. **Stop-Loss and Take-Profit:**
+   - Optionally, include stop-loss and take-profit orders to manage the risk of the trade.
+
+9. **Backtesting Procedure:**
+   - Split the data into in-sample (for optimization) and out-of-sample (for testing).
+   - Calculate all the metrics and generate trading signals on the in-sample period to determine optimal parameters.
+   - Apply the optimized strategy to the out-of-sample data to assess performance.
+   - Evaluate the strategy performance by computing metrics such as net profit, the Sharpe ratio, maximum drawdown, and other relevant financial metrics.
+
+10. **Risk Management and Capital Allocation:**
+    - Determine the position size for each trade based on risk tolerance and capital available.
+    - Ensure diversification if applying the strategy across multiple instruments.
+
+11. **Strategy Optimization:**
+    - Perform sensitivity analysis on key parameters like VBS and VPIN thresholds to find the settings that maximize the strategy's performance.
+    - Consider using walk-forward analysis or other techniques to prevent curve-fitting.
+
+**Note:** This strategy uses a theoretical model assumed to capture informed trading. However, it is essential to consider transaction costs, market impact, and liquidity when executing trades. The strategy should be revisited regularly to ensure that it remains aligned with current market conditions.

@@ -1,0 +1,64 @@
+Bollinger Bounce Trading Strategy Instructions:
+
+1. **Objective**
+
+   - Create a trading strategy that utilizes the Bollinger Bands indicator to trade when the price returns to the middle band after reaching either the upper or lower band.
+
+2. **Initial Setup**
+
+   - Define the financial asset to be traded (e.g., stock, commodity, currency pair).
+   - Select a time frame for analysis (e.g., daily, hourly).
+   - Determine the length of the Bollinger Bands (common default is 20 periods).
+   - Determine the standard deviation multiplier for the upper and lower bands (common default is 2).
+
+3. **Bollinger Bands Calculation**
+
+   - Calculate the Simple Moving Average (SMA) for the defined period (e.g., a 20-period SMA).
+   - Calculate the standard deviation of the price for the same number of periods.
+   - Upper Band = SMA + (Standard Deviation * Multiplier).
+   - Lower Band = SMA - (Standard Deviation * Multiplier).
+   - Middle Band = SMA.
+
+4. **Entry Criteria**
+
+   - A Buy signal is generated when the following conditions are met:
+     - The price touches or goes below the Lower Bollinger Band.
+     - The price then reverses direction and moves back towards the Middle Band.
+   - A Sell signal is generated when the following conditions are met:
+     - The price touches or goes above the Upper Bollinger Band.
+     - The price then reverses direction and moves back towards the Middle Band.
+
+   *Note: Confirm the price reversal with additional indicators if needed (e.g., candlestick patterns, volume, RSI, MACD).*
+
+5. **Exit Criteria**
+
+   - For a Buy position: Exit when the price reaches the Middle Band, or optionally take partial profits with trailing stops.
+   - For a Sell position: Exit when the price reaches the Middle Band, or optionally take partial profits with trailing stops.
+
+6. **Risk Management**
+
+   - Determine the maximum percentage of capital to be risked per trade.
+   - Set a stop-loss order beyond the Bollinger Band touched as a risk control measure, possibly a fixed percentage or based on Average True Range (ATR).
+   - Optionally, set a take-profit level if the risk-reward ratio is favorable.
+
+7. **Backtesting Parameters**
+
+   - Set an initial capital amount.
+   - Include transaction costs (spread, commission) in the backtest simulation.
+   - Determine the period over which the backtest will run (start date to end date).
+   - Have the AI code a system that allows for evaluation of the strategy's performance, including calculating metrics such as total return, annualized return, maximum drawdown, Sharpe ratio, and win rate.
+
+8. **Logging Trades**
+
+   - Record the details of all trades: entry date, exit date, entry price, exit price, position size, profit/loss, and trade duration.
+
+9. **Backtest Evaluation**
+
+   - After running the backtest, evaluate the strategy's performance: assess the profit/loss curve, compare it to the asset's buy-and-hold performance, and adjust the parameters if necessary to optimize the strategy.
+
+10. **Backtest Iterations**
+
+    - To assess robustness, run the backtest multiple times with slight variations in parameters (e.g., changing the length of the Bollinger Bands or the standard deviation multiplier).
+    - Evaluate the sensitivity of the strategy to changes in these parameters.
+
+Ensure the backtest accurately reflects the trading conditions that will be faced in real-time trading, such as slippage and market liquidity constraints.

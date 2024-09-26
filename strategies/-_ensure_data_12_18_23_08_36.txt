@@ -1,0 +1,56 @@
+Trading Strategy Instructions based on "A combined approach of complex network and multiscale fractal dimension for stock time series analysis"
+
+1. Data Preprocessing:
+    - Collect historical price data for the asset to be traded (daily closing prices are suggested).
+    - Ensure data is clean and has no missing values.
+    - Normalize the time series data through min-max normalization or any suitable method.
+
+2. Construct Visibility Graph:
+    - Convert the normalized time series data into a visibility graph, as per the methodology described in the paper.
+    - Each data point in the time series will be a node in the graph.
+    - An edge between two nodes is created if they are 'mutually visible' based on geometric visibility criterion provided in the paper.
+
+3. Compute Degree Sequence:
+    - Calculate the degree of each node in the visibility graph.
+    - The degree sequence is the list of degrees of all nodes in the graph.
+
+4. Multiscale Fractal Dimension (MFDFA):
+    - Perform Multifractal Detrended Fluctuation Analysis (MFDFA) on the original normalized time series.
+    - Calculate the generalized Hurst exponent (H(q)) and the multifractality spectrum (f(α)) from the MFDFA results.
+
+5. Combining Network Metrics and MFDFA:
+    - Analyze the network's topology using the degree sequence.
+    - Investigate the multifractality of the time series using results from the MFDFA.
+    - Look for critical points in the fractality spectrum or significant changes in the network metrics which may indicate a change in market regime.
+
+6. Trading Signals:
+    - Define thresholds for significant changes based on historical data analysis (e.g., deviations beyond a certain percentile of observed values in the degree sequence or changes in the Hurst exponent).
+    - A Buy signal is generated when:
+        a) There is a sudden drop in the network's mean or median degree value, indicating a possible downward movement followed by a reversal.
+        b) The Hurst exponent approaches 0.5 from below, suggesting a transition to a more efficient market phase.
+    - A Sell signal is generated when:
+        a) There is a sudden rise in the network's mean or median degree value, indicating a possible upward movement followed by a correction.
+        b) The Hurst exponent approaches 0.5 from above, suggesting a transition to a less efficient market phase.
+
+7. Position Management and Exit Strategy:
+    - Establish criteria for taking profits and cutting losses (e.g., a target return percentage or a stop-loss percentage).
+    - Create rules for position sizing based on the confidence level of signals (e.g., stronger signals get a higher allocation).
+
+8. Risk Management:
+    - Set a maximum exposure level for open trades to manage risk.
+    - Diversify across different assets if applicable.
+
+9. Backtesting Protocol:
+    - Use historical data to backtest the trading strategy.
+    - Record trades, including entry points, exit points, position sizes, and results.
+    - Analyze the performance metrics such as Sharpe ratio, maximum drawdown, win rate, and profit factor.
+
+10. Optimization:
+    - Optimize the strategy parameters using the backtesting results.
+    - Identify the best-performing parameters in terms of risk-reward profile.
+
+11. Validation:
+    - Validate the strategy on out-of-sample data to test for overfitting.
+    - Compare the strategy's performance to a relevant benchmark.
+
+Always remember to follow ethical trading practices and ensure your strategy complies with the relevant regulatory standards.

@@ -1,0 +1,64 @@
+Trading Strategy Instructions:
+
+**Strategy Name:**
+Multi-Indicator Crossover Strategy
+
+**Objective:**
+To generate buy and sell signals based on the Money Flow Index (MFI), Relative Strength Index (RSI), and Simple Moving Average (SMA) crossover indicators.
+
+**Indicators:**
+
+1. Money Flow Index (MFI) - 14 periods
+2. Relative Strength Index (RSI) - 14 periods
+3. Short-Term Simple Moving Average (SMA) - 50 periods
+4. Long-Term Simple Moving Average (SMA) - 200 periods
+
+**Buy Conditions (All conditions must be met):**
+
+1. MFI Buy Signal:
+   - The MFI crosses above the 20 level, indicating a move from oversold conditions.
+
+2. RSI Buy Signal:
+   - The RSI crosses above the 30 level, confirming the move out of oversold territory.
+
+3. SMA Crossover Buy Signal:
+   - The short-term SMA (50 periods) crosses above the long-term SMA (200 periods), indicating a potential upward trend.
+
+**Sell Condition (Only one condition needs to be met):**
+
+1. SMA Crossover Sell Signal:
+   - The short-term SMA (50 periods) crosses below the long-term SMA (200 periods), indicating a potential downward trend.
+
+**Trade Execution:**
+
+- Execute a Buy order when all three buy conditions are met simultaneously at the close of a trading period.
+- Execute a Sell order when the sell condition is met at the close of a trading period.
+
+**Position Sizing:**
+- Position sizing can be dynamically determined based on risk management rules which are not included in the scope of this set of instructions.
+
+**Stop Loss and Take Profit:**
+
+- These should be determined based on volatility, average true range (ATR), or risk tolerance thresholds but are not provided in the strategy instructions.
+
+**Backtest Considerations:**
+
+- Data Frequency: The strategy should be tested on daily timeframes.
+- Historical Data Range: Should be tested on a sufficient length of historical data for statistical significance (e.g., 5+ years).
+- Commissions and Slippage: These should be factored into the backtest to ensure realistic trade execution scenarios.
+- Risk Management: Include a mechanism to quantify risk per trade and overall portfolio risk.
+- Drawdown: Monitor the maximum drawdown of the portfolio to understand potential capital at risk.
+
+**Output Metrics for Backtest:**
+
+- Total Return
+- Annualized Return
+- Maximum Drawdown
+- Sharpe Ratio
+- Sortino Ratio
+- Win Rate
+- Average Win to Average Loss Ratio
+- Number of Trades
+- Longest Drawdown Duration
+
+These instructions outline the parameters of a multi-indicator trading strategy. They must be translated into specific code for backtesting by a suitable backtesting framework or trading platform.

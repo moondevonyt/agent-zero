@@ -1,0 +1,66 @@
+Strategy Name: Breakout-Funding Rate Arbitrage Strategy
+
+Objective: Capitalize on market breakouts while using funding rate disparities as an additional signal for positioning in perpetual futures markets.
+
+Financial Instruments: Perpetual Futures Contracts on Cryptocurrency assets
+
+Strategy Outline:
+
+1. Define Parameters:
+   - Breakout Lookback Period (`BLP`): The number of past periods to consider for identifying a breakout (e.g., number of days, hours).
+   - Breakout Threshold (`BT`): The percentage increase (for bullish) or decrease (for bearish) in price from the previous `BLP` to define a breakout.
+   - Funding Rate Lookback Period (`FRP`): The number of past funding periods to consider for calculating the average funding rate.
+   - Funding Rate Threshold (`FRT`): The minimum absolute difference between the current funding rate and the average funding rate calculated over `FRP`.
+   - Position Size (`PS`): The size of each trade as a percentage of the portfolio.
+
+2. Data Collection:
+   - Procure historical and real-time price data for the chosen cryptocurrency perpetual futures contracts for the `BLP`.
+   - Procure historical and real-time funding rate data for the same contracts for the `FRP`.
+
+3. Breakout Conditions:
+   - Bullish Breakout: If the current price is greater than the highest price in the last `BLP` by at least `BT%`.
+   - Bearish Breakout: If the current price is less than the lowest price in the last `BLP` by at least `BT%`.
+
+4. Funding Rate Conditions:
+   - Above-Average Funding: If the current funding rate is greater than the average funding rate over the `FRP` by at least `FRT`.
+   - Below-Average Funding: If the current funding rate is less than the average funding rate over the `FRP` by at least `FRT`.
+
+5. Trading Logic:
+   - If a Bullish Breakout is detected and the funding rate is Below-Average, enter a Long position with `PS` of the portfolio.
+   - If a Bearish Breakout is detected and the funding rate is Above-Average, enter a Short position with `PS` of the portfolio.
+
+6. Position Management:
+   - Stop Loss (`SL`): A percentage below/above the entry price for Long/Short positions to limit losses.
+   - Take Profit (`TP`): A percentage above/below the entry price for Long/Short positions to realize gains.
+   - The exact `SL` and `TP` levels will be predefined based on historical volatility and backtesting outcomes.
+
+7. Exit Conditions:
+   - Close the position if the price hits the Stop Loss or Take Profit levels.
+   - Alternatively, close the position if there is a reversal in the breakout direction (e.g., new Bearish Breakout during a Long position).
+
+8. Risk Management:
+   - Only one position should be open at any given time.
+   - Adjust `PS` dynamically to meet predefined risk management rules, such as maximum drawdown limits.
+
+Instructions for AI to Code The Backtest:
+
+1. Gather historical data for both price and funding rates of selected cryptocurrency perpetual futures contracts over a significant enough period to include various market conditions.
+   
+2. Calculate the highest/lowest price for `BLP` and average funding rate for `FRP` for the entire dataset at each time step required for trade decisions.
+
+3. Implement the trading logic by iterating through the data:
+   - Detect breakouts according to the `BT%` definition in relation to the past `BLP`.
+   - Compare the current funding rate to the average funding rate over the `FRP` using the `FRT` and identify the condition (Above-Average or Below-Average).
+
+4. Simulate trades following the trading logic and position management rules:
+   - Enter Long positions on Bullish Breakouts with Below-Average Funding Rates according to the `PS` rule.
+   - Enter Short positions on Bearish Breakouts with Above-Average Funding Rates according to the `PS` rule.
+   - Implement Stop Loss and Take Profit mechanisms.
+
+5. Apply the exit conditions to close positions as specified.
+
+6. Track performance metrics such as net profit, maximum drawdown, win rate, and Sharpe ratio to evaluate the strategy's effectiveness.
+
+7. Use the collected metrics to refine the strategy parameters (such as `BLP`, `BT`, `FRP`, `FRT`, `PS`, `SL`, `TP`) through optimization methods if necessary.
+
+This provided outline requires the subsequent AI to develop a backtest that strictly adheres to the described rules. It should account for transaction costs, slippage, and any other realistic trading constraints to ensure the strategy's applicability in a live market environment.

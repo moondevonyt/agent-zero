@@ -1,0 +1,34 @@
+Trading Strategy Instructions:
+
+1. **Indicator Setup:**
+   - Add the 'Imbalance Algo' by Imba Trading as the primary indicator.
+   - Set up the 'Imbalance Algo' to use Fibonacci retracement levels of 0.236 for long entry and 0.786 for short entry.
+   - Configure the 'Imbalance Algo' for the desired time frame (15-minute recommended for Solana as per the example).
+   - Add a second indicator named 'Trend Strength Over Time' by the specified creator for trend confirmation.
+   - The 'Trend Strength Over Time' oscillator should be configured to read above zero for confirming long entries and below zero for confirming short entries.
+
+2. **Entry Criteria:**
+   - **Long Entry:** A buy signal is generated when one candle closes above the 0.236 Fibonacci level, the 'Imbalance Algo' band is green, and the 'Trend Strength Over Time' oscillator is above zero simultaneously.
+   - **Short Entry:** A sell signal is generated when one candle closes below the 0.786 Fibonacci level, the 'Imbalance Algo' band is red, and the 'Trend Strength Over Time' oscillator is below zero simultaneously.
+
+3. **Stop Loss and Take Profit:**
+   - A predefined risk percentage per trade should be set between 1% to 2% of the trading account balance.
+   - Initial stop loss should be set at the level indicated by the 'Imbalance Algo' (at the red line for a sell signal, for instance).
+   - Take profit levels should be set with the option to take partial profits. For example, take off 40% of the position at TP1 and adjust the stop loss to the break-even price, then take off another 30% at TP2 and adjust the stop loss to the previous target. Continue this strategy for further take profit levels.
+
+4. **Trade Management:**
+   - If the first take profit target is reached, move the stop loss to the entry price to ensure a break-even outcome as a minimum.
+   - With further movement in the trade's favor, adjust the stop loss to each successful take profit level as it is reached.
+
+5. **Trade Exit:**
+   - The position should be exited entirely either when the stop loss is hit or when all predetermined take profit levels are reached.
+
+6. **Backtesting Parameters:**
+   - Include an option to adjust the initial account balance to the planned trading amount.
+   - Include a backtest panel in the strategy to dynamically view performance metrics such as win ratio, number of closed trades, winning and losing streaks, account balance, and total profit in percentage terms.
+
+7. **Indicator Parameters:**
+   - Ensure the 'Imbalance Algo' signal sensitivity is adjustable, with a recommended setting of 15 for Solana on a 15-minute time frame.
+   - Provide customization options for the stop loss strategy (fixed or volatility-based) and the take profit strategy (fixed percentage or incremental).
+
+Remember, these instructions are for another AI to code a backtest, so precise definitions and parameters are essential to replicate the strategy accurately.
